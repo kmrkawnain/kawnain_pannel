@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | BoostPanel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-layout {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .table-responsive {
+            max-height: 70vh;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container-fluid admin-layout">
+            <a class="navbar-brand text-danger fw-bold" href="#">
+                <i class="bi bi-shield-lock-fill me-2"></i>Admin Panel
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="index.html" class="btn btn-sm btn-outline-light me-3">Back to Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        <div class="container-fluid admin-layout fade-in">
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3>Order Management</h3>
+                <div>
+                    <input type="text" class="form-control d-inline-block w-auto me-2" id="searchOrder" placeholder="Search orders...">
+                    <button class="btn btn-primary" id="load-orders-btn">
+                        <i class="bi bi-arrow-clockwise me-1"></i> Refresh Orders
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass-card p-0 overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="bg-dark bg-opacity-75 sticky-top">
+                            <tr>
+                                <th>Order Info</th>
+                                <th>Service</th>
+                                <th>Link</th>
+                                <th>Qty</th>
+                                <th>Amount</th>
+                                <th>UTR</th>
+                                <th>Payment Status</th>
+                                <th>Order Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-orders-body">
+                            <tr>
+                                <td colspan="9" class="text-center py-5 text-muted">
+                                    Click "Refresh Orders" to load data from Google Sheets.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4 small">
+                <i class="bi bi-info-circle me-2"></i> 
+                <strong>Note:</strong> In a production environment, this page should be protected by an authentication layer. Updates made here are synced directly to the Google Sheet.
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

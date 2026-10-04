@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order | BoostPanel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill me-2"></i>BoostPanel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Place Order</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="track-order.html">Track Order</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5">
+        <div class="container fade-in">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="text-center mb-5">
+                        <h2>Track Your <span class="text-gradient">Order</span></h2>
+                        <p class="text-muted">Enter your Order ID below to check current status.</p>
+                    </div>
+
+                    <div class="glass-card p-4 p-md-5 mb-5">
+                        <form id="track-form">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-dark border-secondary text-muted"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control" id="orderIdInput" placeholder="e.g. KW-20261003-48291" required>
+                                <button class="btn btn-primary px-4" type="submit" id="track-btn">Track Order</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="track-result" style="display: none;">
+                        <div class="glass-card p-4">
+                            <h4 class="mb-4 border-bottom border-secondary pb-3">Order Details</h4>
+                            
+                            <div class="row mb-3">
+                                <div class="col-sm-4 text-muted">Order ID</div>
+                                <div class="col-sm-8 fw-semibold" id="res-order-id"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 text-muted">Date</div>
+                                <div class="col-sm-8" id="res-date"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 text-muted">Service</div>
+                                <div class="col-sm-8" id="res-service"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 text-muted">Target Link</div>
+                                <div class="col-sm-8 text-break"><a href="#" id="res-link" target="_blank" class="text-info"></a></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 text-muted">Quantity</div>
+                                <div class="col-sm-8" id="res-quantity"></div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-sm-4 text-muted">Total Amount</div>
+                                <div class="col-sm-8 fw-bold text-primary" id="res-amount"></div>
+                            </div>
+                            
+                            <div class="p-3 rounded bg-dark bg-opacity-50 border border-secondary">
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-4 text-muted">Payment Status</div>
+                                    <div class="col-sm-8">
+                                        <span id="res-payment-status"></span>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-4 text-muted">Order Status</div>
+                                    <div class="col-sm-8">
+                                        <span id="res-order-status"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 BoostPanel SMM.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/tracking.js"></script>
+    <script>
+        // Set link href properly
+        const obs = new MutationObserver(() => {
+            const linkEl = document.getElementById('res-link');
+            if(linkEl.textContent) {
+                linkEl.href = linkEl.textContent;
+            }
+        });
+        obs.observe(document.getElementById('res-link'), { childList: true });
+    </script>
+</body>
+</html>

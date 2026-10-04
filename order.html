@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order | BoostPanel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill me-2"></i>BoostPanel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="order.html">Place Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-order.html">Track Order</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5">
+        <div class="container fade-in">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-4">
+                        <h2>New <span class="text-gradient">Order</span></h2>
+                        <p class="text-muted">Boost your engagement instantly.</p>
+                    </div>
+
+                    <div class="glass-card p-4 p-md-5">
+                        <form id="order-form">
+                            <!-- Optional User Info -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small">Name (Optional)</label>
+                                    <input type="text" class="form-control" id="customerName" placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small">Email (Optional)</label>
+                                    <input type="email" class="form-control" id="customerEmail" placeholder="john@example.com">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Category</label>
+                                <select class="form-select" id="category" required>
+                                    <!-- Populated via JS -->
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Service</label>
+                                <select class="form-select" id="service" required disabled>
+                                    <option value="" disabled selected>Select category first</option>
+                                </select>
+                            </div>
+
+                            <!-- Service Description Box -->
+                            <div class="p-3 mb-4 rounded bg-dark bg-opacity-50 border border-secondary" id="service-details">
+                                <p class="text-muted text-center mb-0">Select a service to see details</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Target Link <span class="text-danger">*</span></label>
+                                <input type="url" class="form-control" id="targetLink" placeholder="https://instagram.com/..." required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Quantity <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="quantity" placeholder="1000" required>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-dark bg-opacity-50 rounded border border-secondary">
+                                <span class="fw-semibold">Total Amount:</span>
+                                <span class="fs-4 fw-bold text-primary" id="amount-display">₹0.00</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 py-3 fs-5" id="submit-btn">
+                                Place Order
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 BoostPanel SMM.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>
